@@ -20,10 +20,17 @@ public class CoachRestController {
         myUtil = util;
     }
 
+    //This method name can be anything thanks to Autowired :)
+    /*@Autowired
+    public void setCoach(Coach theCoach, Util util) {
+        myCoach = theCoach;
+        myUtil = util;
+    }*/
+
     @GetMapping("/dailyWorkout")
     public String getWorkout() {
         String utilResult = myUtil.utilMethod();
-        return myCoach.getWorkout();
+        return myCoach.getWorkout() + " " + utilResult;
     }
 
 
