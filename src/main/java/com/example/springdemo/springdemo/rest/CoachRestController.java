@@ -15,6 +15,14 @@ public class CoachRestController {
     private Util myUtil;
 
     //Creating a constructor for injections
+    //Primary example
+    /*@Autowired
+    public CoachRestController(Coach theCoach, Util util){
+        myCoach = theCoach;
+        myUtil = util;
+    }*/
+
+    //Qualifier example
     @Autowired
     public CoachRestController(@Qualifier("basketballCoach") Coach theCoach, Util util){
         myCoach = theCoach;
