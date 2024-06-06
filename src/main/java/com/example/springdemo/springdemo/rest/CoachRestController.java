@@ -12,6 +12,8 @@ public class CoachRestController {
 
     private Coach myCoach;
 
+    private Coach anotherCoach;
+
     private Util myUtil;
 
     //Creating a constructor for injections
@@ -24,9 +26,12 @@ public class CoachRestController {
 
     //Qualifier example
     @Autowired
-    public CoachRestController(@Qualifier("basketballCoach") Coach theCoach, Util util){
+    public CoachRestController(@Qualifier("basketballCoach") Coach theCoach,
+                               @Qualifier("basketballCoach") Coach theAnotherCoach,
+                               Util util) {
         System.out.println("In constructor " + getClass().getSimpleName());
         myCoach = theCoach;
+        anotherCoach = theAnotherCoach;
         myUtil = util;
     }
 
@@ -42,6 +47,13 @@ public class CoachRestController {
         String utilResult = myUtil.utilMethod();
         return myCoach.getWorkout() + " " + utilResult;
     }
+
+    @GetMapping("/checkBeans")
+    public String checkBeans() {
+        return "Comparing beans -> " + (myCoach == anotherCoach);
+    }
+
+
 
 
 }
