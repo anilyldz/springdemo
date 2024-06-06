@@ -14,6 +14,8 @@ public class CoachRestController {
 
     private Coach anotherCoach;
 
+    private Coach mySwimCoach;
+
     private Util myUtil;
 
     //Creating a constructor for injections
@@ -28,10 +30,12 @@ public class CoachRestController {
     @Autowired
     public CoachRestController(@Qualifier("basketballCoach") Coach theCoach,
                                @Qualifier("basketballCoach") Coach theAnotherCoach,
+                               @Qualifier("aquaman") Coach theSwimCoach,
                                Util util) {
         System.out.println("In constructor " + getClass().getSimpleName());
         myCoach = theCoach;
         anotherCoach = theAnotherCoach;
+        mySwimCoach = theSwimCoach;
         myUtil = util;
     }
 
