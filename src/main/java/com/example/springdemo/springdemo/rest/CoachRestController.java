@@ -25,6 +25,7 @@ public class CoachRestController {
     //Qualifier example
     @Autowired
     public CoachRestController(@Qualifier("basketballCoach") Coach theCoach, Util util){
+        System.out.println("In constructor " + getClass().getSimpleName());
         myCoach = theCoach;
         myUtil = util;
     }
